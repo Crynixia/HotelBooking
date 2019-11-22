@@ -30,25 +30,35 @@
 
 <div class="container-fluid">
     <div class="col-sm-4 booking">
-        <form action="" method="">
+        <form action="receipt.html" method="post">
             <label for="fname">First Name</label>
-            <input class="inputBooking" type="text" id="fname" name="fname" placeholder="Your name..">
-            <label for="lname">Last Name</label>
-            <input class="inputBooking" type="text" id="fname" name="lname" placeholder="Your last name..">
-            <label for="lname">Phone Number</label>
-            <input class="inputBooking" type="text" id="phone" name="phone" placeholder="Your last name..">
-            <label for="lname">Email</label>
-            <input class="inputBooking" type="text" id="email" name="email" placeholder="Your last name..">
-        
-            <label for="country">Country</label>
-            <select class="selectBooking" id="country" name="country">
-                <option class="selectBooking" value="australia">Australia</option>
-                <option class="selectBooking" value="canada">Canada</option>
-                <option class="selectBooking" value="usa">USA</option>
-            </select>
+            <input class="inputBooking" type="text" id="fname" name="fname">
 
-            <a href=""><input class="inputBooking" type="submit" value="Submit"></a>
+            <label for="lname">Last Name</label>
+            <input class="inputBooking" type="text" id="fname" name="lname">
+
+            <label for="lname">Phone Number</label>
+            <input class="inputBooking" type="text" id="phone" name="phone">
+
+            <label for="lname">Email</label>
+            <input class="inputBooking" type="text" id="email" name="email">
+
+            <label for="lname">Check In</label>
+            <input class="inputBooking" type="date" id="check_in" name="check_in">
+            <label for="lname">Check Out</label>
+            <input class="inputBooking" type="date" id="check_out" name="check_out">
+
+            <input class="inputBooking" type="submit" value="Submit">
         </form>
+    </div>
+    <div class="col-sm-6">
+        <h1>Room details :</h1>
+        <p>Room name <!--insert php codes here--></p>
+        <p>Room Image <!--insert php codes here--></p>
+        <p>Room desc <!--insert php codes here--></p>
+        <p>Room untuk berapa org <!--insert php codes here--></p>
+        <p>Room facilities <!--insert php codes here--></p>
+        <p>Room price for 1 day <!--insert php codes here--></p>
     </div>
 </div>
 
