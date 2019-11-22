@@ -13,6 +13,7 @@ footer {
   background-color: rgb(0, 255, 242);
   padding: 10px;
   text-align: center;
+  position: fixed;
   color: rgb(0, 0, 0);
   left: 0;
   bottom: 0;

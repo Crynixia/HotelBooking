@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
@@ -16,8 +19,21 @@
     <li class="liNav"><a href="sdsdsds.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
     <li class="liNav"><a href="dsdsdsds.php">Gallery</a></li>
-    <li style="float:right"><a class="active" href="aaaaaa.php">Log In</a></li>
-    <li style="float:right"><a class="active" href="aaaa.php">Sign Up</a></li>
+    <?php
+        if(isset($_SESSION['uname'])):?>
+
+        <li style="float:right"> <a href="logout.php">Logout</a></li>
+        <li style="float:right"> <a href="profile.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
+
+        <?php
+        else:?>
+
+        <li style="float:right"><a class="active" href="login.php">Log In</a></li>
+        <li style="float:right"><a class="active" href="Signup.php">Sign Up</a></li>
+
+        <?php
+        endif;
+        ?>
 </ul>
 
 <div class="containerText">
@@ -30,7 +46,7 @@
 
 <div class="container-fluid">
     <div class="col-sm-4 booking">
-        <form action="receipt.html" method="post">
+        <form action="receipt.php" method="post">
             <label for="fname">First Name</label>
             <input class="inputBooking" type="text" id="fname" name="fname">
 
