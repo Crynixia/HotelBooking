@@ -1,6 +1,15 @@
 
 <?php
+    include "db_connect.php";
     session_start();
+
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $sql = "SELECT * FROM hotelroom WHERE roomID='$id'";
+            $result = mysqli_query($connect,$sql);
+            $row = mysqli_fetch_assoc($result);
+
+
 ?>
 <html lang="en">
 <head>
@@ -40,7 +49,7 @@
 <div class="containerText">
     <img src="pics/roomHeader.jpg" alt="Hotel Homepage" style="width: 100%; height : 13%; filter: brightness(40%);">
     <div class="centeredText">
-        <h1 style="font-size:60px">Single Room <!--Boleh letak php untuk display nama room--></h1>
+        <h1 style="font-size:60px"><?php echo $row['roomName'] ?></h1>
     </div>
 </div> 
 <br>
@@ -48,15 +57,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4">
-            <!--Php image-->
-            Gambar
+            <img src="<?php echo $row['image'] ?>"> <!--Image from database table "hotelroom"-->
         </div>
         <div class="col-sm-6">
-            <!-- PHP information codes-->
-            -Jenis rooms<br>
-            -Descripstion<br>
-            -Facilities<br>
-            -Harga<br><br>
+            <!-- Room information from database table "hotelroom" codes-->
+            <?php echo $row['roomName'] ?><br>
+            <?php echo $row['roomDesc'] ?><br>
+            <?php echo $row['services'] ?><br>
+            <?php echo $row['price'] ?><br><br>
             <a href="booking.php"><button class="buttonBooking">Booking</button></a>
         </div>
     </div>
@@ -73,3 +81,9 @@
 
 </body>
 </html>
+<?php
+    exit();
+    }else{
+        echo"salah masuk";
+    }
+?>

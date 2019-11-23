@@ -49,7 +49,7 @@
         <div class="col-side">&nbsp;</div>
         <div class="col-center">
             <fieldset>
-                <h1>Single Room <!--Inser php codes for room name--></h1>
+                <h1>Single Room <!--Insert php codes for room name--></h1>
                 
                 <h5><!--insert php codes berapa hari stay--> nights, Check-in date :<!--check-out php code--> Check-out date :<!--check-out php code--></h5>
                 <br>
