@@ -42,7 +42,8 @@
             $sql = mysqli_query($connect,"SELECT * FROM user WHERE username = '$username' AND password ='$pass' ");        
             if (mysqli_num_rows($sql)>0) {  
               $username = $_POST["uname"];
-			        $_SESSION["uname"] = $username;
+              $_SESSION["uname"] = $username;
+              $_SESSION['userID'] = $sql->userID;
               header("location: homepage.php");
             }
           }

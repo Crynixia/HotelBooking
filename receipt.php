@@ -1,5 +1,11 @@
 <?php
+    include "db_connect.php";
     session_start();
+
+        if(isset($_SESSION['uname'])){
+            $sql = "SELECT * FROM user where userID='".$_SESSION['userID']."'";
+            $result = mysqli_query($connect,$sql);
+            $row = mysqli_fetch_assoc($result);
 ?>
 <html lang="en">
 <head>
@@ -53,9 +59,9 @@
                 
                 <h5><!--insert php codes berapa hari stay--> nights, Check-in date :<!--check-out php code--> Check-out date :<!--check-out php code--></h5>
                 <br>
-                <p>First name : <b><!--insert php codes here--></b></p>
-                <p>Last name : <b><!--insert php codes here--></b></p>
-                <p>Phone Number : <b><!--insert php codes here--></b></p>
+                <p>First name : <b><?php echo $row['fName'] ?></b></p>
+                <p>Last name : <b><?php echo $row['lName'] ?></b></p>
+                <p>Phone Number : <b><?php echo $row['phone'] ?></b></p>
                 <p>Email : <b><!--insert php codes here--></b></p>
                 <br><br>
                 <p>Room name <!--insert php codes here--></p>
@@ -81,3 +87,9 @@
 
 </body>
 </html>
+<?php
+    exit();
+    }else{
+        echo"salah masuk";
+    }
+?>

@@ -61,7 +61,7 @@
                                     <a href="#"><i class="fa fa-linkedin"></i></a>  
                                     <a href="#"><i class="fa fa-facebook"></i></a> 
                                 </div>
-                            <a href="roomDetails.php"><p><button class="buttonCard">Details</button></p></a>
+                            <a href="roomDetails.php?id=1"><p><button class="buttonCard">Details</button></p></a>
                         </div>
                     </td>
                     <td>
@@ -93,7 +93,7 @@
                                     <a href="#"><i class="fa fa-linkedin"></i></a>  
                                     <a href="#"><i class="fa fa-facebook"></i></a> 
                                 </div>
-                            <a href="roomDetails.php"><p><button class="buttonCard">Details</button></p></a>
+                            <a href="roomDetails.php?id=3"><p><button class="buttonCard">Details</button></p></a>
                         </div>
                     </td>
                     <td>
@@ -108,7 +108,7 @@
                                     <a href="#"><i class="fa fa-linkedin"></i></a>  
                                     <a href="#"><i class="fa fa-facebook"></i></a> 
                                 </div>
-                            <a href="roomDetails.php"><p><button class="buttonCard">Details</button></p></a>
+                            <a href="roomDetails.php?id=4"><p><button class="buttonCard">Details</button></p></a>
                         </div>
                     </td>
                 </tr>
@@ -126,7 +126,7 @@
                                     <a href="#"><i class="fa fa-facebook"></i></a> 
                                 </div>
 
-                            <a href="roomDetails.php"><p><button class="buttonCard">Details</button></p></a>
+                            <a href="roomDetails.php?id=5"><p><button class="buttonCard">Details</button></p></a>
                         </div>
                     </td>
                     <td>
@@ -141,7 +141,7 @@
                                     <a href="#"><i class="fa fa-linkedin"></i></a>  
                                     <a href="#"><i class="fa fa-facebook"></i></a> 
                                 </div>
-                            <a href="roomDetails.php"><p><button class="buttonCard">Details</button></p></a>                       
+                            <a href="roomDetails.php?id=6"><p><button class="buttonCard">Details</button></p></a>                       
                         </div>
                     </td>
                 </tr>

@@ -8,8 +8,6 @@
             $sql = "SELECT * FROM hotelroom WHERE roomID='$id'";
             $result = mysqli_query($connect,$sql);
             $row = mysqli_fetch_assoc($result);
-
-
 ?>
 <html lang="en">
 <head>
@@ -64,8 +62,34 @@
             <?php echo $row['roomName'] ?><br>
             <?php echo $row['roomDesc'] ?><br>
             <?php echo $row['services'] ?><br>
-            <?php echo $row['price'] ?><br><br>
-            <a href="booking.php"><button class="buttonBooking">Booking</button></a>
+            <?php echo "RM" .$row['price']; ?><br><br>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-center">
+                    <form action="receipt.php" method="post">
+                        <label for="fname">First Name</label>
+                        <input class="inputBooking" type="text" id="fname" name="fname">
+
+                        <label for="lname">Last Name</label>
+                        <input class="inputBooking" type="text" id="fname" name="lname">
+
+                        <label for="lname">Phone Number</label>
+                        <input class="inputBooking" type="text" id="phone" name="phone">
+
+                        <label for="lname">Email</label>
+                        <input class="inputBooking" type="text" id="email" name="email">
+
+                        <label for="lname">Check In</label>
+                        <input class="inputBooking" type="date" id="check_in" name="check_in">
+                        <label for="lname">Check Out</label>
+                        <input class="inputBooking" type="date" id="check_out" name="check_out">
+
+                        <input class="inputBooking" type="submit" value="Booking">
+                    </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
