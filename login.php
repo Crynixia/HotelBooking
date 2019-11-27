@@ -41,9 +41,14 @@
             $pass = mysqli_real_escape_string($connect, $_POST['pass']);
             $sql = mysqli_query($connect,"SELECT * FROM user WHERE username = '$username' AND password ='$pass' ");        
             if (mysqli_num_rows($sql)>0) {  
-              $username = $_POST["uname"];
-              $_SESSION["uname"] = $username;
-              $_SESSION['userID'] = $sql->userID;
+              $row = mysqli_fetch_assoc($sql);
+              $_SESSION['userID'] = $row['userID'];
+              $_SESSION['fName'] = $row['fName'];
+              $_SESSION['lName'] = $row['lName'];
+              $_SESSION['phone'] = $row['phone'];
+              $_SESSION['phone'] = $row['phone'];
+              $_SESSION["uname"] = $row['username'];
+              
               header("location: homepage.php");
             }
           }

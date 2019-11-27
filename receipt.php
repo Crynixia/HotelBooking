@@ -3,7 +3,8 @@
     session_start();
 
         if(isset($_SESSION['uname'])){
-            $sql = "SELECT * FROM user where userID='".$_SESSION['userID']."'";
+            $id = $_SESSION['userID'];
+            $sql = "SELECT * FROM user where userID='$id'";
             $result = mysqli_query($connect,$sql);
             $row = mysqli_fetch_assoc($result);
 ?>
