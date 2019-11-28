@@ -67,18 +67,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-center">
-                    <form action="receipt.php" method="post">
-                        <label for="fname">First Name</label>
-                        <input class="inputBooking" type="text" id="fname" name="fname">
-
-                        <label for="lname">Last Name</label>
-                        <input class="inputBooking" type="text" id="fname" name="lname">
-
-                        <label for="lname">Phone Number</label>
-                        <input class="inputBooking" type="text" id="phone" name="phone">
-
-                        <label for="lname">Email</label>
-                        <input class="inputBooking" type="text" id="email" name="email">
+                    <form action="receipt.php?id= <?php echo $id; ?>" method="post">
+                        <label for="lname">Services</label><!--edit laterz-->
+                        <input class="inputBooking" type="text" id="services" name="services">
 
                         <label for="lname">Check In</label>
                         <input class="inputBooking" type="date" id="check_in" name="check_in">

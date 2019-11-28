@@ -7,6 +7,13 @@
             $sql = "SELECT * FROM user where userID='$id'";
             $result = mysqli_query($connect,$sql);
             $row = mysqli_fetch_assoc($result);
+        }
+        if(isset($_GET['id'])){
+            $id2 = $_GET['id'];
+            $sql2 = "SELECT * FROM hotelroom WHERE roomID='$id2'";
+            $result2 = mysqli_query($connect,$sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+            
 ?>
 <html lang="en">
 <head>
@@ -65,9 +72,9 @@
                 <p>Phone Number : <b><?php echo $row['phone'] ?></b></p>
                 <p>Email : <b><!--insert php codes here--></b></p>
                 <br><br>
-                <p>Room name <!--insert php codes here--></p>
-                <p>Room desc <!--insert php codes here--></p>
-                <p>Room facilities <!--insert php codes here--></p>
+                <p>Room name <b><?php echo $row2['roomName'] ?></b></p>
+                <p>Room desc <b><?php echo $row2['roomDesc'] ?></b></p>
+                <p>Room facilities <b><?php echo $row2['services'] ?></b></p>
                 <p>Total price (hari x price per night) : RM <!--insert php codes here--></p>
                 <br>
                 <a href="homepage.php"><button class="buttonBooking">Back to Home</button></a>
