@@ -3,15 +3,46 @@
 <head>
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" type="text/css" href="new.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 	<title>Signup</title>
 </head>
 <body>
-    <div class="header">
-        <a href="homepage.html"><img src="pics/icon.jpg" ></a>
-        <a class="nav" href="homepage.php">Home</a>
-        <a class="nav" href="#">Kimak</a>
-        <a class="nav" href="#">Web</a>
+<ul class="ulNav">
+    <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
+    <li class="liNav"><a href="aboutus.php">About Us</a></li>
+    <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
+    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
+    <?php
+        if(isset($_SESSION['uname'])):?>
+
+        <li style="float:right"> <a href="logout.php">Logout</a></li>
+            <div class="dropdown" style="float:right">
+                <button class="dropbtn"><?php echo $_SESSION['uname'] ."'s Profile";?></button>
+                <div class="dropdown-content">
+                    <a href="Profilesetting.php">Profile Setting</a>
+                    <a href="Reservation.php">My Reservation</a>
+                </div>
+            </div>
+
+
+        <?php
+        else:?>
+
+        <li style="float:right"><a class="active" href="login.php">Log In</a></li>
+        <li style="float:right"><a class="active" href="Signup.php">Sign Up</a></li>
+
+        <?php
+        endif;
+        ?>
+</ul>
+
+<div class="containerText">
+    <img src="pics/roomHeader.jpg" alt="Hotel Homepage" style="width: 100%; height : 13%; filter: brightness(40%);">
+    <div class="centeredText">
+        <h1 style="font-size:60px">Sign Up</h1>
     </div>
+</div> 
+<br>
 
     	<center>
     		<h1>Join Our Membership</h1>

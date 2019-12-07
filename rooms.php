@@ -1,4 +1,5 @@
 <?php
+    include "db_connect.php";
     session_start();
 ?>
 <html lang="en">
@@ -13,18 +14,23 @@
 </head>
 
 <body>
-
 <ul class="ulNav">
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
-    <li class="liNav"><a href="sdsdsds.php">About Us</a></li>
+    <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="Reservation.php">My Reservation</a></li>
-    <li class="liNav"><a href="dsdsdsds.php">Gallery</a></li>
+    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
         <li style="float:right"> <a href="logout.php">Logout</a></li>
-        <li style="float:right"> <a href="Profilesetting.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
+            <div class="dropdown" style="float:right">
+                <button class="dropbtn"><?php echo $_SESSION['uname'] ."'s Profile";?></button>
+                <div class="dropdown-content">
+                    <a href="Profilesetting.php">Profile Setting</a>
+                    <a href="Reservation.php">My Reservation</a>
+                </div>
+            </div>
+
 
         <?php
         else:?>
@@ -49,103 +55,35 @@
         <div class="col-side">&nbsp;</div>
         <div class="col-center">
             <table style="width: 100%">
-                <tr>
-                    <td>
-                        <div class="card">
-                            <img src="pics/singleRoom.jpg" alt="Single Room" style="width:100%">
-                            <h1>Single Room</h1>
-                            <p class="titleCard">Description</p>
-                            <p>Description 2</p>
-                                <div style="margin: 24px 0;">
-                                    <a class="linkCard" href="#"><i class="fa fa-dribbble"></i></a> 
-                                    <a href="#"><i class="fa fa-twitter"></i></a>  
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>  
-                                    <a href="#"><i class="fa fa-facebook"></i></a> 
-                                </div>
-                            <a href="roomDetails.php?id=1"><p><button class="buttonCard">Details</button></p></a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card">
-                            <img src="pics/doubleRoom.jpg" alt="Double Room" style="width:100%">
-                            <h1>Double Room</h1>
-                            <p class="titleCard">Description</p>
-                            <p>Description 2</p>
-                                <div style="margin: 24px 0;">
-                                    <a class="linkCard" href="#"><i class="fa fa-dribbble"></i></a> 
-                                    <a href="#"><i class="fa fa-twitter"></i></a>  
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>  
-                                    <a href="#"><i class="fa fa-facebook"></i></a> 
-                                </div>
-                            <a href="roomDetails.php?id=2"><p><button class="buttonCard">Details</button></p></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="card">
-                            <img src="pics/tripleRoom.jpg" alt="Triple Room" style="width:100%">
-                            <h1>Triple Room</h1>
-                            <p class="titleCard">Description</p>
-                            <p>Description 2</p>
-                                <div style="margin: 24px 0;">
-                                    <a class="linkCard" href="#"><i class="fa fa-dribbble"></i></a> 
-                                    <a href="#"><i class="fa fa-twitter"></i></a>  
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>  
-                                    <a href="#"><i class="fa fa-facebook"></i></a> 
-                                </div>
-                            <a href="roomDetails.php?id=3"><p><button class="buttonCard">Details</button></p></a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card">
-                            <img src="pics/queenRoom.jpg" alt="Queen Room" style="width:100%">
-                            <h1>Queen Room</h1>
-                            <p class="titleCard">Description</p>
-                            <p>Description 2</p>
-                                <div style="margin: 24px 0;">
-                                    <a class="linkCard" href="#"><i class="fa fa-dribbble"></i></a> 
-                                    <a href="#"><i class="fa fa-twitter"></i></a>  
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>  
-                                    <a href="#"><i class="fa fa-facebook"></i></a> 
-                                </div>
-                            <a href="roomDetails.php?id=4"><p><button class="buttonCard">Details</button></p></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="card">
-                            <img src="pics/kingRoom.jpg" alt="King Room" style="width:100%">
-                            <h1>King Room</h1>
-                            <p class="titleCard">Description</p>
-                            <p>Description 2</p>
-                                <div style="margin: 24px 0;">
-                                    <a class="linkCard" href="#"><i class="fa fa-dribbble"></i></a> 
-                                    <a href="#"><i class="fa fa-twitter"></i></a>  
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>  
-                                    <a href="#"><i class="fa fa-facebook"></i></a> 
-                                </div>
+                <?php     
+                    $sql = "SELECT * FROM hotelroom ORDER BY roomID ASC"; 
+                    $result = mysqli_query($connect,$sql); 
+                    if(mysqli_num_rows($result) > 0)
+                    {
+                        $i = 0;
+                        while ($row = mysqli_fetch_array($result))
+                        {
+                            $imageRoom = $row['image'];
+                            $roomName = $row['roomName'];
+                            $roomDesc = $row['roomDesc'];
+                            $price = $row['price'];
+                            $roomID = $row['roomID'];
 
-                            <a href="roomDetails.php?id=5"><p><button class="buttonCard">Details</button></p></a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card">
-                            <img src="pics/twinRoom.jpg" alt="Twin Room" style="width:100%">
-                            <h1>Twin Room</h1>
-                            <p class="titleCard">Description</p>
-                            <p>Description 2</p>
-                                <div style="margin: 24px 0;">
-                                    <a class="linkCard" href="#"><i class="fa fa-dribbble"></i></a> 
-                                    <a href="#"><i class="fa fa-twitter"></i></a>  
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>  
-                                    <a href="#"><i class="fa fa-facebook"></i></a> 
-                                </div>
-                            <a href="roomDetails.php?id=6"><p><button class="buttonCard">Details</button></p></a>                       
-                        </div>
-                    </td>
-                </tr>
+                            if (!fmod($i,2)) echo '<tr>';
+                            echo "<td>";
+                            echo "<div class="."card".">";
+                            echo"<img src=".$imageRoom." style="."width:100%".">";
+                            echo "<h1>".$roomName."</h1>";
+                            echo "<p class="."titleCard".">".$roomDesc."</p>";
+                            echo "Price per night : RM" .$price;
+                            echo "<a href="."roomDetails.php?id=".$roomID."><p><button class="."buttonCard".">Details</button></p></a>";
+                            echo "</div>";
+                            echo "</td>";
+                            if (fmod($i,2)) echo '</tr>';
+                            $i++;
+                        }  
+                    }
+                ?>        
             </table>
         </div>
         <div class="col-side">&nbsp;</div>
@@ -159,7 +97,7 @@
 </script>
 &nbsp;
 <footer>
-    "Ehem ehem eheeem" - Aqil Sahar
+    MoonLine Hotel®
 </footer>
 
 </body>

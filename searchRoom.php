@@ -18,15 +18,21 @@
 
 <ul class="ulNav">
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
-    <li class="liNav"><a href="sdsdsds.php">About Us</a></li>
+    <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="Reservation.php">My Reservation</a></li>
-    <li class="liNav"><a href="dsdsdsds.php">Gallery</a></li>
+    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
         <li style="float:right"> <a href="logout.php">Logout</a></li>
-        <li style="float:right"> <a href="Profilesetting.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
+            <div class="dropdown" style="float:right">
+                <button class="dropbtn"><?php echo $_SESSION['uname'] ."'s Profile";?></button>
+                <div class="dropdown-content">
+                    <a href="Profilesetting.php">Profile Setting</a>
+                    <a href="Reservation.php">My Reservation</a>
+                </div>
+            </div>
+
 
         <?php
         else:?>
@@ -51,16 +57,16 @@
         <div class="col-side">&nbsp;</div>
         <div class="col-center">
             <table style="width: 100%">
-            <tr>
             <?php   
                 if(isset($_POST['submit'])){
                     $room = $_POST["roomName"];
                     $person = $_POST["roomPerson"];
                     
-                    $sql = "SELECT * FROM hotelroom where roomPerson='$person' OR roomName='$room'"; 
+                    $sql = "SELECT * FROM hotelroom where roomPerson='$person' or roomName='$room'"; 
                     $result = mysqli_query($connect,$sql); 
                     if(mysqli_num_rows($result) > 0)
                     {
+                        $i = 0;
                         while ($row = mysqli_fetch_array($result))
                         {
                             $imageRoom = $row['image'];
@@ -68,7 +74,8 @@
                             $roomDesc = $row['roomDesc'];
                             $price = $row['price'];
                             $roomID = $row['roomID'];
-                            
+
+                            if (!fmod($i,2)) echo '<tr>';
                             echo "<td>";
                             echo "<div class="."card".">";
                             echo"<img src=".$imageRoom." style="."width:100%".">";
@@ -78,11 +85,12 @@
                             echo "<a href="."roomDetails.php?id=".$roomID."><p><button class="."buttonCard".">Details</button></p></a>";
                             echo "</div>";
                             echo "</td>";
+                            if (fmod($i,2)) echo '</tr>';
+                            $i++;
                         }  
                     }
                 }
             ?>        
-            </tr>    
             </table>
         </div>
         <div class="col-side">&nbsp;</div>
@@ -96,7 +104,7 @@
 </script>
 &nbsp;
 <footer>
-    "Ehem ehem eheeem" - Aqil Sahar
+    MoonLine Hotel®
 </footer>
 
 </body>

@@ -23,15 +23,21 @@
 
 <ul class="ulNav">
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
-    <li class="liNav"><a href="sdsdsds.php">About Us</a></li>
+    <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="Reservation.php">My Reservation</a></li>
-    <li class="liNav"><a href="dsdsdsds.php">Gallery</a></li>
+    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
         <li style="float:right"> <a href="logout.php">Logout</a></li>
-        <li style="float:right"> <a href="Profilesetting.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
+            <div class="dropdown" style="float:right">
+                <button class="dropbtn"><?php echo $_SESSION['uname'] ."'s Profile";?></button>
+                <div class="dropdown-content">
+                    <a href="Profilesetting.php">Profile Setting</a>
+                    <a href="Reservation.php">My Reservation</a>
+                </div>
+            </div>
+
 
         <?php
         else:?>
@@ -80,6 +86,9 @@
 	</div>
 
 
+<footer>
+    MoonLine Hotel®
+</footer>
 
 </body>
 </html>

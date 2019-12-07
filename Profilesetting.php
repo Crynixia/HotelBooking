@@ -24,15 +24,21 @@
 <body>
 <ul class="ulNav">
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
-    <li class="liNav"><a href="sdsdsds.php">About Us</a></li>
+    <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="Reservation.php">My Reservation</a></li>
-    <li class="liNav"><a href="dsdsdsds.php">Gallery</a></li>
+    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
         <li style="float:right"> <a href="logout.php">Logout</a></li>
-        <li style="float:right"> <a href="Profilesetting.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
+            <div class="dropdown" style="float:right">
+                <button class="dropbtn"><?php echo $_SESSION['uname'] ."'s Profile";?></button>
+                <div class="dropdown-content">
+                    <a href="Profilesetting.php">Profile Setting</a>
+                    <a href="Reservation.php">My Reservation</a>
+                </div>
+            </div>
+
 
         <?php
         else:?>
@@ -44,10 +50,11 @@
         endif;
         ?>
 </ul>
+
 <div class="containerText">
     <img src="pics/roomHeader.jpg" alt="Hotel Homepage" style="width: 100%; height : 13%; filter: brightness(40%);">
     <div class="centeredText">
-        <h1 style="font-size:60px"><?php echo $row["fName"];?> Profile</h1>
+        <h1 style="font-size:60px"><?php echo $row["username"];?> Profile</h1>
     </div>
 </div> 
 <br><br><br>
@@ -97,6 +104,10 @@
 		</table><br>
 		<a href="customeredit.php"><button style="margin-left: 800px;">Edit</button></a>
 	</div>	
+
+<footer>
+    MoonLine Hotel®
+</footer>
 
 </body>
 </html>

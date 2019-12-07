@@ -3,6 +3,7 @@
 ?>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="styleAbout.css">
     <link rel="stylesheet" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,32 +42,29 @@
         endif;
         ?>
 </ul>
-
 <div class="containerText">
+    <img src="pics/roomHeader.jpg" alt="Hotel Homepage" style="width: 100%; height : 13%; filter: brightness(40%);">
+    <div class="centeredText">
+        <h1 style="font-size:60px">About Us</h1>
+    </div>
+</div> 
+
+<!-- <div class="containerText">
     <img src="pics/hotelHome.jpg" alt="Hotel Homepage" style="width: 100%; height : 80%; filter: brightness(40%);">
     <div class="centeredText">
-        <h1 style="font-size:60px">MoonLine Hotel</h1>
-        <form action="searchRoom.php" method="post">
+        <h1 style="font-size:60px">Hotel Babi</h1>
+        <form action="" method="post">
             <fieldset>
                 <table>
                     <tr>
-                        <td><p style="color: white;">Room</p></td>
+                        <td></td>
                         <td><p style="color: white;">Check-In</p></td>
                         <td><p style="color: white;">Check-Out</p></td>
                         <td><p style="color: white;">Person</p></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>
-                            <select name="roomName">
-                                <option value="Single Room">Single Room</option>
-                                <option value="Double Room">Double Room</option>
-                                <option value="Triple Room">Triple Room</option>
-                                <option value="Queen Room">Queen Room</option>
-                                <option value="King Room">King Room</option>
-                                <option value="Quad Room">Quad Room</option>
-                            </select>
-                        </td>
+                        <td><input type="search" name="search" placeholder="Search for rooms"></td>
                         <td><input type="date" name="check_in"></td>
                         <td><input type="date" name="check_out"></td>
                         <td>
@@ -83,74 +81,41 @@
             </fieldset>
         </form>
     </div>
-</div> 
+</div>  -->
 <br>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
-            <h1>Hotel Babi</h1>
+            <h1>MoonLine Hotel</h1>
             <p>
-                 Our hotel has been the hospitality industry’s magazine of record for more than 140 years. Today, it covers hotel investment,
-                  development, operations, design, technology, brand strategies and the sharing economy for the new generation of hotel owner, 
-                  developer, operator, broker and financier. Our editorial staff provides the very latest news and insight for the hospitality 
-                  community and boasts a masthead brimming with sought-after thought leaders in the industry.
+                 Our hotel has been the hospitality industry’s magazine of record for more than 140 years. Today, it covers hotel investment, development, operations, design, technology, brand strategies and the sharing economy for the new generation of hotel owner, developer, operator, broker and financier. Our editorial staff provides the very latest news and insight for the hospitality community and boasts a masthead brimming with sought-after thought leaders in the industry.
             </p>
             <p>
-                MoonLine Hotel is a modern, upscale hospitality company that is passionate about ‘making moments’, recognising that small 
-                gestures make a big difference to our guests, our owners and our people. We do ordinary things in an extraordinary way – a 
-                philosophy that has defined our brand’s success from the very start.
+                MoonLine Hotel is a modern, upscale hospitality company that is passionate about ‘making moments’, recognising that small gestures make a big difference to our guests, our owners and our people. We do ordinary things in an extraordinary way – a philosophy that has defined our brand’s success from the very start.
             </p>
             <p>
-                Our hotel is one of the world’s most reputable upscale hotel management companies. Since it was established in 1973, 
-                the hospitality firm has expanded its international presence and today, manages 20,000-plus rooms in more than 82 hotels across 
-                Africa, Asia, Europe and the Middle East. With ambitious plans to further expand its footprint across these continents, the 
-                company is on track to meet its target of operating 125 properties by 2020. The company’s global workforce of 16,000 hospitality
-                 professionals are trained to ensure Mövenpick’s traditional Swiss values are always upheld, guaranteeing the 7.5 million guests 
-                 who stay with us every year are well looked after.
+                Our hotel is one of the world’s most reputable upscale hotel management companies. Since it was established in 1973, the hospitality firm has expanded its international presence and today, manages 20,000-plus rooms in more than 82 hotels across Africa, Asia, Europe and the Middle East. With ambitious plans to further expand its footprint across these continents, the company is on track to meet its target of operating 125 properties by 2020. The company’s global workforce of 16,000 hospitality professionals are trained to ensure Mövenpick’s traditional Swiss values are always upheld, guaranteeing the 7.5 million guests who stay with us every year are well looked after.
             </p>
         </div>
         <div class="col-sm-6">
             <div class="row>">
-                <a href="aaaaa.php">
+                <a href="#">
                     <div class="col-sm-6">
                         <div class="containerHome">
-                            <img src="pics/singleRoom.jpg" alt="Single Room" class="imageHome" style="width:100%">
+                            <img src="picAbout/hotel.jpg" alt="" class="imageHome" style="width:100%">
                             <div class="middle">
-                                <div class="textHome">Single Room</div>
+                                
                             </div>
                         </div>
                     </div>
                 </a>
-                <a href="aaaa.php">
+                <a href="#">
                     <div class="col-sm-6">
                         <div class="containerHome">
-                            <img src="pics/doubleRoom.jpg" alt="Double Room" class="imageHome" style="width:100%">
+                            <img src="picAbout/hotel2.jpg" alt="Double Room" class="imageHome" style="width:100%">
                             <div class="middle">
-                                <div class="textHome">Double Room</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            &nbsp;
-            <div class="row>">
-                <a href="aaaaa.php">
-                    <div class="col-sm-6">
-                        <div class="containerHome">
-                            <img src="pics/tripleRoom.jpg" alt="Triple Room" class="imageHome" style="width:100%">
-                            <div class="middle">
-                                <div class="textHome">Triple Room</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="aaa.php">
-                    <div class="col-sm-6">
-                        <div class="containerHome">
-                            <img src="pics/queenRoom.jpg" alt="Queen Room" class="imageHome" style="width:100%">
-                            <div class="middle">
-                                <div class="textHome">Queen Room</div>
+                                
                             </div>
                         </div>
                     </div>
@@ -158,22 +123,45 @@
             </div>
             &nbsp;
             <div class="row>">
-                <a href="aaaa.php">
+                <a href="#">
                     <div class="col-sm-6">
                         <div class="containerHome">
-                            <img src="pics/kingRoom.jpg" alt="King Room" class="imageHome" style="width:100%">
+                            <img src="picAbout/hotel3.jpg" alt="Triple Room" class="imageHome" style="width:100%">
                             <div class="middle">
-                                <div class="textHome">King Room</div>
+                                
                             </div>
                         </div>
                     </div>
                 </a>
-                <a href="cc.php">
+                <a href="#">
                     <div class="col-sm-6">
                         <div class="containerHome">
-                            <img src="pics/twinRoom.jpg" alt="Twin Room" class="imageHome" style="width:100%">
+                            <img src="picAbout/hotel4.jpg" alt="Queen Room" class="imageHome" style="width:100%">
                             <div class="middle">
-                                <div class="textHome">Quad Room</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            &nbsp;
+            <div class="row>">
+                <a href="#">
+                    <div class="col-sm-6">
+                        <div class="containerHome">
+                            <img src="picAbout/hotel5.jpg" alt="King Room" class="imageHome" style="width:100%">
+                            <div class="middle">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="col-sm-6">
+                        <div class="containerHome">
+                            <img src="picAbout/hotel6.jpg" alt="Twin Room" class="imageHome" style="width:100%">
+                            <div class="middle">
+                                
                             </div>
                         </div>
                     </div>
@@ -184,7 +172,7 @@
 </div>
 &nbsp;
 <div class="containerText">
-    <img src="pics/homepage2.jpg" alt="Hotel Image" style="width: 100%; height : 55%; filter: brightness(40%);">
+    <img src="picAbout/homepage2.jpg" alt="Hotel Image" style="width: 100%; height : 55%; filter: brightness(40%);">
     <div class="mainText">
         <h1 style="font-size:30px">Our highlights and features</h1>
         <p style="font-size:25px ;left: 50%">

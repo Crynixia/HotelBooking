@@ -32,15 +32,21 @@
 
 <ul class="ulNav">
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
-    <li class="liNav"><a href="sdsdsds.php">About Us</a></li>
+    <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="Reservation.php">My Reservation</a></li>
-    <li class="liNav"><a href="dsdsdsds.php">Gallery</a></li>
+    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
         <li style="float:right"> <a href="logout.php">Logout</a></li>
-        <li style="float:right"> <a href="Profilesetting.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
+            <div class="dropdown" style="float:right">
+                <button class="dropbtn"><?php echo $_SESSION['uname'] ."'s Profile";?></button>
+                <div class="dropdown-content">
+                    <a href="Profilesetting.php">Profile Setting</a>
+                    <a href="Reservation.php">My Reservation</a>
+                </div>
+            </div>
+
 
         <?php
         else:?>
@@ -80,7 +86,7 @@
                 <p>Room desc <b><?php echo $row2['roomDesc']; ?></b></p>
                 <p>Total price: RM <?php echo $row2['totalPrice']; ?></p>
                 <br>
-                <a href="homepage.php"><button class="buttonBooking">Back to Home</button></a>
+                <a href="Reservation.php"><button class="buttonBooking">Back to My Reservation</button></a>
             </fieldset>
         </div>
         <div class="col-side">&nbsp;</div>
@@ -92,7 +98,7 @@
 </script>
 &nbsp;
 <footer>
-    "Ehem ehem eheeem" - Aqil Sahar
+    MoonLine Hotel®
 </footer>
 
 </body>

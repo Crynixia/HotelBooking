@@ -44,7 +44,7 @@
 <div class="containerText">
     <img src="pics/roomHeader.jpg" alt="Hotel Homepage" style="width: 100%; height : 13%; filter: brightness(40%);">
     <div class="centeredText">
-        <h1 style="font-size:60px">Log In</h1>
+        <h1 style="font-size:60px">Admin Log In</h1>
     </div>
 </div> 
 <br>
@@ -71,17 +71,16 @@
           else{
             $username = mysqli_real_escape_string($connect, $_POST['uname']);
             $pass = mysqli_real_escape_string($connect, $_POST['pass']);
-            $sql = mysqli_query($connect,"SELECT * FROM user WHERE username = '$username' AND password ='$pass' ");        
+            $sql = mysqli_query($connect,"SELECT * FROM staff WHERE username = '$username' AND password ='$pass' ");        
             if (mysqli_num_rows($sql)>0) {  
               $row = mysqli_fetch_assoc($sql);
-              $_SESSION['userID'] = $row['userID'];
+              $_SESSION['staffID'] = $row['staffID'];
               $_SESSION['fName'] = $row['fName'];
               $_SESSION['lName'] = $row['lName'];
               $_SESSION['phone'] = $row['phone'];
-              $_SESSION['phone'] = $row['phone'];
               $_SESSION["uname"] = $row['username'];
               
-              header("location: homepage.php");
+              header("location: adminHome.php");
             }
           }
         }

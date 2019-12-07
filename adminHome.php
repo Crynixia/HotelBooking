@@ -1,8 +1,7 @@
 <?php
     include "db_connect.php";
     session_start();
-    $id = $_SESSION['userID'];
-    $id2 = $_SESSION['bookingID'];
+    $id = $_SESSION['uname'];
     // $id3 = $_SESSION["bookingID"];
         
         if(isset($_SESSION['uname'])){
@@ -10,14 +9,6 @@
             $sql = "SELECT * FROM user where userID='$id'";
             $result = mysqli_query($connect,$sql);
             $row = mysqli_fetch_array($result);
-        
-        // if(isset($_GET['id'])){
-
-            $sql2 = "SELECT * FROM booking WHERE bookingID='$id2'";
-            $result2 = mysqli_query($connect,$sql2);
-            $row2 = mysqli_fetch_array($result2);
-        
-            
 ?>
 <html lang="en">
 <head>
@@ -41,20 +32,10 @@
         if(isset($_SESSION['uname'])):?>
 
         <li style="float:right"> <a href="logout.php">Logout</a></li>
-            <div class="dropdown" style="float:right">
-                <button class="dropbtn"><?php echo $_SESSION['uname'] ."'s Profile";?></button>
-                <div class="dropdown-content">
-                    <a href="Profilesetting.php">Profile Setting</a>
-                    <a href="Reservation.php">My Reservation</a>
-                </div>
-            </div>
-
+        <li style="float:right"> <a href="logout.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
 
         <?php
         else:?>
-
-        <li style="float:right"><a class="active" href="login.php">Log In</a></li>
-        <li style="float:right"><a class="active" href="Signup.php">Sign Up</a></li>
 
         <?php
         endif;
@@ -64,7 +45,7 @@
 <div class="containerText">
     <img src="pics/roomHeader.jpg" alt="Hotel Homepage" style="width: 100%; height : 13%; filter: brightness(40%);">
     <div class="centeredText">
-        <h1 style="font-size:60px">Receipt</h1>
+        <h1 style="font-size:60px">Admin Homepage</h1>
     </div>
 </div> 
 <br>
@@ -74,21 +55,7 @@
         <div class="col-side">&nbsp;</div>
         <div class="col-center">
             <fieldset>
-                <h1><?php echo $row2['roomName']; ?></h1>
                 
-                <h5><?php echo $row2['hari']; ?> nights, Check-in date :<?php echo $row2['checkIn']; ?> Check-out date :<?php echo $row2['checkOut']; ?></h5>
-                <br>
-                <p>First name : <b><?php echo $row['fName'] ?></b></p>
-                <p>Last name : <b><?php echo $row['lName'] ?></b></p>
-                <p>Phone Number : <b><?php echo $row['phone']; ?></b></p>
-                <p>Email : <b><?php echo $row2['roomName']; ?></b></p>
-                <br><br>
-        
-                <p>Room name <b><?php echo $row2['roomName']; ?></b></p>
-                <p>Room desc <b><?php echo $row2['roomDesc']; ?></b></p>
-                <p>Total price: RM <?php echo $row2['totalPrice']; ?></p>
-                <br>
-                <a href="homepage.php"><button class="buttonBooking">Back to Home</button></a>
             </fieldset>
         </div>
         <div class="col-side">&nbsp;</div>
