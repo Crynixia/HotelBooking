@@ -16,7 +16,7 @@
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
     <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
+    <li></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
@@ -51,24 +51,20 @@
       <form  method="POST">
         <center>
           <fieldset class="fieldset">
-            <label class="label">Username</label>
-            <input type="text" name="uname"><br><br>
-            <label class="label">Password</label>
-            <input type="password" name="pass"><br><br>
-            <input type="checkbox" name="remember" >Remember Me<br><br>
-            <button class="button" name="submit">Login</button>
-            <p>Not a member? <a href="Signup.php">Join Now</a></p>
+              <label class="label">Username</label>
+              <input type="text" name="uname"><br><br>
+              <label class="label">Password</label>
+              <input type="password" name="pass"><br><br>
+              <input type="checkbox" name="remember" >Remember Me<br><br>
+              <button class="button" name="submit">Login</button>
+              <p>Not a member? <a href="Signup.php">Join Now</a></p>
             </fieldset>
         </center>
       </form>
 
       <?php
         if (isset($_POST["submit"])){
-          if(empty($_POST['uname']) || empty ($_POST['pass'])){
-            $error = "Username or Password is invalid";
-            echo $error;
-          }
-          else{
+          if(($_POST['uname']) ||  ($_POST['pass'])){
             $username = mysqli_real_escape_string($connect, $_POST['uname']);
             $pass = mysqli_real_escape_string($connect, $_POST['pass']);
             $sql = mysqli_query($connect,"SELECT * FROM user WHERE username = '$username' AND password ='$pass' ");        
@@ -78,10 +74,15 @@
               $_SESSION['fName'] = $row['fName'];
               $_SESSION['lName'] = $row['lName'];
               $_SESSION['phone'] = $row['phone'];
-              $_SESSION['phone'] = $row['phone'];
+              $_SESSION['email'] = $row['email'];
+              $_SESSION['gender'] = $row['gender'];
               $_SESSION["uname"] = $row['username'];
               
               header("location: homepage.php");
+          }
+          else{
+            $message = "invalid username or password";
+            echo "<script type='text/javascript'>alert('$message');</script>";
             }
           }
         }

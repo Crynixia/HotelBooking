@@ -8,6 +8,7 @@
 		$result = mysqli_query($connect,$sql);
 		$row = mysqli_fetch_assoc($result);
 	}
+	if(isset($_SESSION['userID'])){
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,8 @@
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   	<link rel="stylesheet" type="text/css" href="new.css">
-  	<link rel="stylesheet" type="text/css" href="profilesetting.css">
+	  <link rel="stylesheet" type="text/css" href="profilesetting.css">
+	  <link rel="stylesheet" type="text/css" href="cusEditCSS.css">
 	<link rel="stylesheet" href="style.css">
 	<title>Hotel - My Profile</title>
 </head>
@@ -26,7 +28,7 @@
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
     <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
+    <li></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
@@ -102,7 +104,7 @@
 				<td><?php echo $row["email"];?></td>
 			</tr>
 		</table><br>
-		<a href="customeredit.php"><button style="margin-left: 800px;">Edit</button></a>
+		<a href="customeredit.php"><button class="button" style="margin-left: 71%; ">Edit Profile</button></a>
 	</div>	
 
 <footer>
@@ -111,3 +113,9 @@
 
 </body>
 </html>
+<?php
+    exit();
+    }else
+    header("location: login.php");
+    
+?>

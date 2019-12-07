@@ -26,7 +26,7 @@
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
     <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
+    <li></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 

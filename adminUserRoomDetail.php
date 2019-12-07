@@ -1,28 +1,19 @@
 <?php
     include "db_connect.php";
     session_start();
-    $id = $_SESSION['userID'];
-    $id2 = $_SESSION['bookingID'];
-    // $id3 = $_SESSION["bookingID"];
+         
         
-        if(isset($_SESSION['uname'])){
-            
-            $sql = "SELECT * FROM user where userID='$id'";
-            $result = mysqli_query($connect,$sql);
-            $row = mysqli_fetch_array($result);
-        
-        // if(isset($_GET['id'])){
-
-            $sql2 = "SELECT * FROM booking WHERE bookingID='$id2'";
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $sql2 = "SELECT * FROM user JOIN booking ON user.userID=booking.userID where bookingID='$id'";
             $result2 = mysqli_query($connect,$sql2);
             $row2 = mysqli_fetch_array($result2);
-
-        }
-        if(isset($_SESSION['userID'])){
+        
+            
 ?>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Adminstyle.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
@@ -34,28 +25,17 @@
 <body>
 
 <ul class="ulNav">
-    <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
-    <li class="liNav"><a href="aboutus.php">About Us</a></li>
-    <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li></li>
+    <li class="liNav"><a class="active" href="adminHome.php">Home</a></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
-        <li style="float:right"> <a href="logout.php">Logout</a></li>
-            <div class="dropdown" style="float:right">
-                <button class="dropbtn"><?php echo $_SESSION['uname'] ."'s Profile";?></button>
-                <div class="dropdown-content">
-                    <a href="Profilesetting.php">Profile Setting</a>
-                    <a href="Reservation.php">My Reservation</a>
-                </div>
-            </div>
+        <li style="float:right"> <a href="adminlogout.php">Logout</a></li>
 
 
         <?php
         else:?>
 
         <li style="float:right"><a class="active" href="login.php">Log In</a></li>
-        <li style="float:right"><a class="active" href="Signup.php">Sign Up</a></li>
 
         <?php
         endif;
@@ -65,7 +45,7 @@
 <div class="containerText">
     <img src="pics/roomHeader.jpg" alt="Hotel Homepage" style="width: 100%; height : 13%; filter: brightness(40%);">
     <div class="centeredText">
-        <h1 style="font-size:60px">Receipt</h1>
+        <h1 style="font-size:60px">Details</h1>
     </div>
 </div> 
 <br>
@@ -80,24 +60,23 @@
                 <h5><?php echo $row2['hari']; ?> nights, Check-in date :<?php echo $row2['checkIn']; ?> Check-out date :<?php echo $row2['checkOut']; ?></h5>
                 <br>
 
-
                 <center>
                 <table border="1" style="padding: 2px;">
                     <tr>
                         <td>First name</td>
-                        <td><b><?php echo $row['fName'] ?></b></td>
+                        <td><b><?php echo $row2['fName'] ?></b></td>
                     </tr>
                     <tr>
                         <td>Last name</td>
-                        <td><b><?php echo $row['lName'] ?></b></td>
+                        <td><b><?php echo $row2['lName'] ?></b></td>
                     </tr>
                     <tr>
                         <td>Phone Number</td>
-                        <td><b><?php echo $row['phone'] ?></b></td>
+                        <td><b><?php echo $row2['phone'] ?></b></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><b><?php echo $row['email'] ?></b></td>
+                        <td><b><?php echo $row2['email'] ?></b></td>
                     </tr>
                 </table>
                 </center>
@@ -118,7 +97,7 @@
                     </tr>
                 </table>
                 </center>
-                <a href="homepage.php"><button class="buttonBooking">Back to Home</button></a>
+                <a href="adminHome.php"><button class="buttonBooking">Back to Admin</button></a>
             </fieldset>
         </div>
         <div class="col-side">&nbsp;</div>
@@ -129,15 +108,13 @@
 <script>
 </script>
 &nbsp;
-<footer>
-    MoonLine Hotel®
-</footer>
+
 
 </body>
 </html>
 <?php
     exit();
     }else
-    header("location: login.php");
+        echo"salah masuk";
     
 ?>

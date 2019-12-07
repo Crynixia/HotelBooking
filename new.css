@@ -10,7 +10,13 @@
 	width: 20%;
 	height: 250px;
 
-	border: none;
+}
+
+.fieldset2{
+	margin-top: 1%;
+	width: 20%;
+	height: 360px;
+
 }
 
 .body{

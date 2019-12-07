@@ -5,7 +5,10 @@
 	
 	$sql = "SELECT * FROM booking WHERE userID='$id'";
 	$result = mysqli_query($connect,$sql);
-	$row = mysqli_fetch_array($result);
+    $row = mysqli_fetch_array($result);
+    
+    if(isset($_SESSION['userID'])){
+
 ?>
 <html lang="en">
 <head>
@@ -25,7 +28,7 @@
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
     <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
+    <li></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
@@ -92,3 +95,9 @@
 
 </body>
 </html>
+<?php
+    exit();
+    }else
+    header("location: login.php");
+    
+?>

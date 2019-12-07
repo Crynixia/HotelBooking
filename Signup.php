@@ -11,7 +11,7 @@
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
     <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
+    <li></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
@@ -50,12 +50,14 @@
     	</center>
       <form action="client_info.php" method="POST">
         <center>
-          <fieldset class="fieldset">
+          <fieldset class="fieldset2">
             <input class="input" type="text" name="fname" placeholder="First Name" required><br><br>
             <input class="input" type="text" name="lname" placeholder="Last Name" required><br><br>
             <input class="input" type="text" name="phone" placeholder="Phone Number" required><br><br>
             <input class="input" type="text" name="uname" placeholder="User Name" required><br><br>
             <input class="input" type="password" name="pass" placeholder="Password" required><br><br>
+            <input class="input" type="text" name="gender" placeholder="Gender" required><br><br>
+            <input class="input" type="text" name="email" placeholder="Email" required><br><br>
             <button name="submit" class="button">Join Now</button>
             </fieldset>
         </center>

@@ -7,7 +7,8 @@
 		$sql = "SELECT * FROM user WHERE userID = $id";
 		$result = mysqli_query($connect,$sql);
 		$row = mysqli_fetch_assoc($result);
-	}
+    }
+    if(isset($_SESSION['userID'])){
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
     <li class="liNav"><a href="aboutus.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
+    <li></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
@@ -90,3 +91,9 @@
     ?>
 </body>
 </html>
+<?php
+    exit();
+    }else
+    header("location: login.php");
+    
+?>

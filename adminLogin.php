@@ -7,34 +7,23 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="new.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="Adminstyle.css">
 
   <title>Login</title>
 </head>
 <body class="bod">
 <ul class="ulNav">
-    <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
-    <li class="liNav"><a href="aboutus.php">About Us</a></li>
-    <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
-    <li class="liNav"><a href="daboutus.php">Gallery</a></li>
+    <li style="float:right"><a class="active" href="adminLogin.php">Log In</a></li>
+
+    <li></li>
     <?php
         if(isset($_SESSION['uname'])):?>
-
-        <li style="float:right"> <a href="logout.php">Logout</a></li>
-            <div class="dropdown" style="float:right">
-                <button class="dropbtn"><?php echo $_SESSION['uname'] ."'s Profile";?></button>
-                <div class="dropdown-content">
-                    <a href="Profilesetting.php">Profile Setting</a>
-                    <a href="Reservation.php">My Reservation</a>
-                </div>
+        <li class="liNav"><a class="active" href="adminHome.php">Home</a></li>
             </div>
 
 
         <?php
         else:?>
-
-        <li style="float:right"><a class="active" href="login.php">Log In</a></li>
-        <li style="float:right"><a class="active" href="Signup.php">Sign Up</a></li>
 
         <?php
         endif;
@@ -64,11 +53,7 @@
 
       <?php
         if (isset($_POST["submit"])){
-          if(empty($_POST['uname']) || empty ($_POST['pass'])){
-            $error = "Username or Password is invalid";
-            echo $error;
-          }
-          else{
+          if(($_POST['uname']) ||  ($_POST['pass'])){
             $username = mysqli_real_escape_string($connect, $_POST['uname']);
             $pass = mysqli_real_escape_string($connect, $_POST['pass']);
             $sql = mysqli_query($connect,"SELECT * FROM staff WHERE username = '$username' AND password ='$pass' ");        
@@ -81,7 +66,11 @@
               $_SESSION["uname"] = $row['username'];
               
               header("location: adminHome.php");
-            }
+          }
+          else{
+            $message = "invalid username or password";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+          }
           }
         }
 

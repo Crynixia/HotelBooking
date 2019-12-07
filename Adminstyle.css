@@ -1,0 +1,325 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+      font-family: 'Lato';
+      font-size: 18px;
+      margin: 0;
+      height: 100%;
+  }
+  
+  footer {
+    background-color: rgb(0, 255, 242);
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    color: rgb(0, 0, 0);
+    left: 0;
+    bottom: 0;
+    width : 100%;
+  }
+  
+  /*homepage*/
+  .containerText {
+      position: relative;
+      text-align: center;
+      color: rgb(255, 255, 255);
+    }
+  
+  .centeredText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  
+  .mainText {
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+  }
+  /*end of homepage*/
+  
+  /* Dropdown List*/
+  .dropbtn {
+    background-color: rgb(0, 255, 234);
+    color: rgb(0, 0, 0);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: rgb(0, 255, 234);}
+  /* End of Dropdown List */
+  
+  /*pages navbar*/
+  .ulNav {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: rgb(0, 0, 0);
+      position: inherit;
+    }
+    
+  .liNav {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: rgb(0, 247, 255);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  li a:hover {
+    background-color: rgb(156, 150, 150);
+    color: #333;
+  }
+  /*End of pages navbar*/
+  
+  /*booking*/
+  .buttonBooking {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color:rgb(0, 255, 242);
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    width: 20%;
+    font-size: 18px;
+  }
+  
+  .booking {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  .inputBooking[type=text] , .selectBooking{
+    width: 85%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .inputBooking[type=submit] {
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 255, 242);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .inputBooking[type=submit]:hover {
+    opacity: 0.7;
+  }
+  /*end of booking*/
+  
+  
+  /*Homepage search*/
+  input[type=submit]{
+    background-color: rgb(0, 255, 234);
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  input[type=search]{
+    padding: 14px 50px;
+  }
+  
+  input[type=date]{
+    padding: 16px 10px;
+  }
+  
+  select{
+    padding: 16px 32px;
+  }
+  /*End of homepage search*/
+  
+  /*Grid */
+  .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .col-sm-4, .col-sm-6 ,col-sm-8,col-side, col-center{
+    position:relative;
+    min-height:1px;
+    padding-right:15px;
+    padding-left:15px
+  }
+  
+  @media (min-width: 768px){
+    .col-sm-4{
+      float: left;
+      width: 33.33333333%;
+    }
+  
+    .col-sm-6{
+      float: left;
+      width: 50%;
+    }
+    .col-sm-8{
+      float: left;
+      width: 66.66666667%;
+    }
+    .col-side{
+      float: left;
+      width: 25%;
+    }
+    .col-center{
+      float: left;
+      width: 50%;
+    }
+  }
+  
+  .row-no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .row-no-gutters [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /*End of grid */
+  
+  /*Homepage display rooms*/
+  .containerHome {
+    position: relative;
+    width: 100%;
+  }
+  
+  .imageHome:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+  }
+  
+  .imageHome {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .containerHome:hover .image {
+    opacity: 0.3;
+  }
+  
+  .containerHome:hover .middle {
+    opacity: 1;
+  }
+  
+  .textHome {
+    background-color: rgb(0, 255, 242);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+  /*End of homepage display rooms*/
+  
+  /* Rooms and Services Page Card */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .titleCard {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  .buttonCard {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color:rgb(0, 255, 242);
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .linkCard {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  
+  .buttonCard:hover, a:hover {
+    opacity: 0.7;
+  }
+  /* End of Rooms and Services Page Card */
+  
