@@ -1,23 +1,7 @@
+
 <?php
     include "db_connect.php";
     session_start();
-    $id = $_SESSION['userID'];
-    $id2 = $_SESSION['bookingID'];
-    // $id3 = $_SESSION["bookingID"];
-        
-        if(isset($_SESSION['uname'])){
-            
-            $sql = "SELECT * FROM user where userID='$id'";
-            $result = mysqli_query($connect,$sql);
-            $row = mysqli_fetch_array($result);
-        
-        // if(isset($_GET['id'])){
-
-            $sql2 = "SELECT * FROM booking WHERE bookingID='$id2'";
-            $result2 = mysqli_query($connect,$sql2);
-            $row2 = mysqli_fetch_array($result2);
-        
-            
 ?>
 <html lang="en">
 <head>
@@ -58,39 +42,57 @@
 <div class="containerText">
     <img src="pics/roomHeader.jpg" alt="Hotel Homepage" style="width: 100%; height : 13%; filter: brightness(40%);">
     <div class="centeredText">
-        <h1 style="font-size:60px">Receipt</h1>
+        <h1 style="font-size:60px">Rooms and Services</h1>
     </div>
 </div> 
 <br>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-side">&nbsp;</div>
         <div class="col-center">
-            <fieldset>
-                <h1><?php echo $row2['roomName']; ?></h1>
-                
-                <h5><?php echo $row2['hari']; ?> nights, Check-in date :<?php echo $row2['checkIn']; ?> Check-out date :<?php echo $row2['checkOut']; ?></h5>
-                <br>
-                <p>First name : <b><?php echo $row['fName'] ?></b></p>
-                <p>Last name : <b><?php echo $row['lName'] ?></b></p>
-                <p>Phone Number : <b><?php echo $row['phone']; ?></b></p>
-                <p>Email : <b><?php echo $row2['roomName']; ?></b></p>
-                <br><br>
-        
-                <p>Room name <b><?php echo $row2['roomName']; ?></b></p>
-                <p>Room desc <b><?php echo $row2['roomDesc']; ?></b></p>
-                <p>Total price: RM <?php echo $row2['totalPrice']; ?></p>
-                <br>
-                <a href="homepage.php"><button class="buttonBooking">Back to Home</button></a>
-            </fieldset>
+            <table style="width: 100%">
+            <tr>
+            <?php   
+                if(isset($_POST['submit'])){
+                    $room = $_POST["roomName"];
+                    $person = $_POST["roomPerson"];
+                    
+                    $sql = "SELECT * FROM hotelroom where roomPerson='$person' OR roomName='$room'"; 
+                    $result = mysqli_query($connect,$sql); 
+                    if(mysqli_num_rows($result) > 0)
+                    {
+                        while ($row = mysqli_fetch_array($result))
+                        {
+                            $imageRoom = $row['image'];
+                            $roomName = $row['roomName'];
+                            $roomDesc = $row['roomDesc'];
+                            $price = $row['price'];
+                            $roomID = $row['roomID'];
+                            
+                            echo "<td>";
+                            echo "<div class="."card".">";
+                            echo"<img src=".$imageRoom." style="."width:100%".">";
+                            echo "<h1>".$roomName."</h1>";
+                            echo "<p class="."titleCard".">".$roomDesc."</p>";
+                            echo "Price per night : RM" .$price;
+                            echo "<a href="."roomDetails.php?id=".$roomID."><p><button class="."buttonCard".">Details</button></p></a>";
+                            echo "</div>";
+                            echo "</td>";
+                        }  
+                    }
+                }
+            ?>        
+            </tr>    
+            </table>
         </div>
         <div class="col-side">&nbsp;</div>
     </div>
 </div>
 
 
+
 <script>
+
 </script>
 &nbsp;
 <footer>
@@ -99,9 +101,3 @@
 
 </body>
 </html>
-<?php
-    exit();
-    }else
-        echo"salah masuk";
-    
-?>

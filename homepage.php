@@ -13,17 +13,17 @@
 </head>
 
 <body>
-
 <ul class="ulNav">
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
     <li class="liNav"><a href="sdsdsds.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
+    <li class="liNav"><a href="Reservation.php">My Reservation</a></li>
     <li class="liNav"><a href="dsdsdsds.php">Gallery</a></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
         <li style="float:right"> <a href="logout.php">Logout</a></li>
-        <li style="float:right"> <a href="profile.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
+        <li style="float:right"> <a href="Profilesetting.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
 
         <?php
         else:?>
@@ -40,18 +40,23 @@
     <img src="pics/hotelHome.jpg" alt="Hotel Homepage" style="width: 100%; height : 80%; filter: brightness(40%);">
     <div class="centeredText">
         <h1 style="font-size:60px">Hotel Babi</h1>
-        <form action="" method="post">
+        <form action="searchRoom.php" method="post">
             <fieldset>
                 <table>
                     <tr>
-                        <td></td>
+                        <td><p style="color: white;">Room</p></td>
                         <td><p style="color: white;">Check-In</p></td>
                         <td><p style="color: white;">Check-Out</p></td>
                         <td><p style="color: white;">Person</p></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td><input type="search" name="search" placeholder="Search for rooms"></td>
+                        <td>
+                            <select name="roomName">
+                                <option value="Single Room">Single Room</option>
+                                <option value="Double Room">Double Room</option>
+                            </select>
+                        </td>
                         <td><input type="date" name="check_in"></td>
                         <td><input type="date" name="check_out"></td>
                         <td>

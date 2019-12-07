@@ -2,18 +2,16 @@
     include "db_connect.php";
     session_start();
     $id = $_SESSION['userID'];
-    $id2 = $_SESSION['bookingID'];
-    // $id3 = $_SESSION["bookingID"];
-        
+         
         if(isset($_SESSION['uname'])){
-            
             $sql = "SELECT * FROM user where userID='$id'";
             $result = mysqli_query($connect,$sql);
             $row = mysqli_fetch_array($result);
+        }
         
-        // if(isset($_GET['id'])){
-
-            $sql2 = "SELECT * FROM booking WHERE bookingID='$id2'";
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $sql2 = "SELECT * FROM booking WHERE bookingID='$id'";
             $result2 = mysqli_query($connect,$sql2);
             $row2 = mysqli_fetch_array($result2);
         
@@ -58,7 +56,7 @@
 <div class="containerText">
     <img src="pics/roomHeader.jpg" alt="Hotel Homepage" style="width: 100%; height : 13%; filter: brightness(40%);">
     <div class="centeredText">
-        <h1 style="font-size:60px">Receipt</h1>
+        <h1 style="font-size:60px">Details</h1>
     </div>
 </div> 
 <br>

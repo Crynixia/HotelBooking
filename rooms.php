@@ -18,12 +18,13 @@
     <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
     <li class="liNav"><a href="sdsdsds.php">About Us</a></li>
     <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
+    <li class="liNav"><a href="Reservation.php">My Reservation</a></li>
     <li class="liNav"><a href="dsdsdsds.php">Gallery</a></li>
     <?php
         if(isset($_SESSION['uname'])):?>
 
         <li style="float:right"> <a href="logout.php">Logout</a></li>
-        <li style="float:right"> <a href="profile.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
+        <li style="float:right"> <a href="Profilesetting.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
 
         <?php
         else:?>

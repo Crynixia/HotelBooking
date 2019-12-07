@@ -92,8 +92,8 @@ li a:hover {
   padding: 20px;
 }
 
-.inputBooking[type=text]{
-  width: 100%;
+.inputBooking[type=text] , .selectBooking{
+  width: 85%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;

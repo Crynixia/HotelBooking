@@ -1,51 +1,81 @@
-<!DOCTYPE html>
-<html>
+<?php
+	include "db_connect.php";
+    session_start();
+	$id = $_SESSION['userID'];
+	
+	$sql = "SELECT * FROM booking WHERE userID='$id'";
+	$result = mysqli_query($connect,$sql);
+	$row = mysqli_fetch_array($result);
+?>
+<html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" type="text/css" href="new.css">
-	<title></title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="new.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel - Homepage</title>
 </head>
+
 <body>
-	<div class="header">
-        <a href="#"><img src="pics/icon.jpg" ></a>
-        <a class="nav" href="#">Home</a>
-        <a class="nav" href="#">Kimak</a>
-        <a class="nav" href="#">Web</a>
-	</div>
 
-	<div style="padding: 1px 1px;height:500px; float: left;">
-	<ul>
-		<li><a href="" class="active">Reservation</a></li>
-  		<li><a href="#">My Profile</a></li>
-  		<li><a href="#contact">Contact</a></li>
-  		<li><a href="#about">About</a></li>
-	</ul>
-</div>
+<ul class="ulNav">
+    <li class="liNav"><a class="active" href="homepage.php">Home</a></li>
+    <li class="liNav"><a href="sdsdsds.php">About Us</a></li>
+    <li class="liNav"><a href="rooms.php">Rooms and Services</a></li>
+    <li class="liNav"><a href="Reservation.php">My Reservation</a></li>
+    <li class="liNav"><a href="dsdsdsds.php">Gallery</a></li>
+    <?php
+        if(isset($_SESSION['uname'])):?>
 
-	<center><h1>Reservation</h1></center>	
-	<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+        <li style="float:right"> <a href="logout.php">Logout</a></li>
+        <li style="float:right"> <a href="Profilesetting.php"><?php echo $_SESSION['uname'] ."'s Profile";?></a></li>
+
+        <?php
+        else:?>
+
+        <li style="float:right"><a class="active" href="login.php">Log In</a></li>
+        <li style="float:right"><a class="active" href="Signup.php">Sign Up</a></li>
+
+        <?php
+        endif;
+        ?>
+</ul>
+
+<div class="containerText">
+    <img src="pics/roomHeader.jpg" alt="Hotel Homepage" style="width: 100%; height : 13%; filter: brightness(40%);">
+    <div class="centeredText">
+        <h1 style="font-size:60px">Reservation</h1>
+    </div>
+</div> 
+<br><br><br><br><br>
+
+	<div style="margin-left:17%;padding:1px 16px;height:1000px;">
 	<table id="customers">
 		<tr>
 			<th>Check In</th>
 			<th>Check Out</th>
-			<th>Room</th>
-			<th>Name</th>
-			<th>Person</th>
+			<th>Days</th>
+			<th>Room Name</th>
+			<th>Price (RM)</th>
+			<th colspan="2">Action</th>
 		</tr>
-		<tr>
-			<td>20-10-2019</td>
-			<td>21-10-2019</td>
-			<td>King Size</td>
-			<td>Atan</td>
-			<td>5 person</td>
-		</tr>
-		<tr>
-			<td>20-10-2019</td>
-			<td>21-10-2019</td>
-			<td>King Size</td>
-			<td>Atan</td>
-			<td>5 person</td>
-		</tr>
+		<?php
+		foreach ($result as $row) {
+			echo "<tr>";
+				echo "<td>" .$row["checkIn"] ."</td>";
+				echo "<td>" .$row["checkOut"] ."</td>";
+				echo "<td>" .$row["hari"] ."</td>";
+				echo "<td>" .$row["roomName"] ."</td>";
+				echo "<td>" .$row["totalPrice"] ."</td>";
+				echo "<td><a href=\"userRoomDetail.php?id=" .$row["bookingID"] . "\">Detail</a></td>";
+				echo "<td><a href=\"deleteRoom.php?id=" .$row["bookingID"] . "\">Delete</a></td>";
+			echo "</tr>";
+		}
+		?>
+		
 	</table>
 	</div>
 

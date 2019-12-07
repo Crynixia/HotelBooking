@@ -1,0 +1,38 @@
+/*FOR TABLE*/
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 20px 90px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 10px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: purple;
+  color: white;
+}
+/*adjut image*/
+.image-cropper{
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+/*adjust image*/
+.pic{
+  display: inline;
+  margin: 0 auto;
+  margin-left: 1%;
+  height: 100%;
+  width: auto;
+}
