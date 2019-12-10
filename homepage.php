@@ -89,7 +89,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
-            <h1>Hotel Babi</h1>
+            <h1>MoonLine Hotel</h1>
             <p>
                  Our hotel has been the hospitality industry’s magazine of record for more than 140 years. Today, it covers hotel investment,
                   development, operations, design, technology, brand strategies and the sharing economy for the new generation of hotel owner, 
@@ -112,7 +112,6 @@
         </div>
         <div class="col-sm-6">
             <div class="row>">
-                <a href="aaaaa.php">
                     <div class="col-sm-6">
                         <div class="containerHome">
                             <img src="pics/singleRoom.jpg" alt="Single Room" class="imageHome" style="width:100%">
@@ -121,8 +120,6 @@
                             </div>
                         </div>
                     </div>
-                </a>
-                <a href="aaaa.php">
                     <div class="col-sm-6">
                         <div class="containerHome">
                             <img src="pics/doubleRoom.jpg" alt="Double Room" class="imageHome" style="width:100%">
@@ -131,11 +128,9 @@
                             </div>
                         </div>
                     </div>
-                </a>
             </div>
             &nbsp;
             <div class="row>">
-                <a href="aaaaa.php">
                     <div class="col-sm-6">
                         <div class="containerHome">
                             <img src="pics/tripleRoom.jpg" alt="Triple Room" class="imageHome" style="width:100%">
@@ -144,8 +139,6 @@
                             </div>
                         </div>
                     </div>
-                </a>
-                <a href="aaa.php">
                     <div class="col-sm-6">
                         <div class="containerHome">
                             <img src="pics/queenRoom.jpg" alt="Queen Room" class="imageHome" style="width:100%">
@@ -154,11 +147,9 @@
                             </div>
                         </div>
                     </div>
-                </a>
             </div>
             &nbsp;
             <div class="row>">
-                <a href="aaaa.php">
                     <div class="col-sm-6">
                         <div class="containerHome">
                             <img src="pics/kingRoom.jpg" alt="King Room" class="imageHome" style="width:100%">
@@ -167,8 +158,6 @@
                             </div>
                         </div>
                     </div>
-                </a>
-                <a href="cc.php">
                     <div class="col-sm-6">
                         <div class="containerHome">
                             <img src="pics/twinRoom.jpg" alt="Twin Room" class="imageHome" style="width:100%">
@@ -177,7 +166,6 @@
                             </div>
                         </div>
                     </div>
-                </a>
             </div>
         </div>
     </div>

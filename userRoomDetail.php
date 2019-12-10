@@ -76,16 +76,44 @@
                 
                 <h5><?php echo $row2['hari']; ?> nights, Check-in date :<?php echo $row2['checkIn']; ?> Check-out date :<?php echo $row2['checkOut']; ?></h5>
                 <br>
-                <p>First name : <b><?php echo $row['fName'] ?></b></p>
-                <p>Last name : <b><?php echo $row['lName'] ?></b></p>
-                <p>Phone Number : <b><?php echo $row['phone']; ?></b></p>
-                <p>Email : <b><?php echo $row2['roomName']; ?></b></p>
+
+                <center>
+                <table border="1" style="padding: 2px;">
+                    <tr>
+                        <td>First name</td>
+                        <td><b><?php echo $row['fName'] ?></b></td>
+                    </tr>
+                    <tr>
+                        <td>Last name</td>
+                        <td><b><?php echo $row['lName'] ?></b></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td><b><?php echo $row['phone'] ?></b></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><b><?php echo $row['email'] ?></b></td>
+                    </tr>
+                </table>
+                </center>
                 <br><br>
-        
-                <p>Room name <b><?php echo $row2['roomName']; ?></b></p>
-                <p>Room desc <b><?php echo $row2['roomDesc']; ?></b></p>
-                <p>Total price: RM <?php echo $row2['totalPrice']; ?></p>
-                <br>
+                <center>
+                <table border="1" style="padding: 2px;">
+                    <tr>
+                        <td>Room name</td>
+                        <td><b><?php echo $row2['roomName'] ?></b></td>
+                    </tr>
+                    <tr>
+                        <td>Room Description</td>
+                        <td><b><?php echo $row2['roomDesc'] ?></b></td>
+                    </tr>
+                    <tr>
+                        <td>TotalPrice</td>
+                        <td><b>RM<?php echo $row2['totalPrice'] ?></b></td>
+                    </tr>
+                </table>
+                </center>
                 <a href="Reservation.php"><button class="buttonBooking">Back to My Reservation</button></a>
             </fieldset>
         </div>
