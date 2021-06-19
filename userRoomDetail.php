@@ -14,8 +14,7 @@
             $sql2 = "SELECT * FROM booking WHERE bookingID='$id'";
             $result2 = mysqli_query($connect,$sql2);
             $row2 = mysqli_fetch_array($result2);
-        
-            
+   
 ?>
 <html lang="en">
 <head>
